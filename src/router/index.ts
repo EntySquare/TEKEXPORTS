@@ -14,9 +14,15 @@ let router = createRouter({
       path: '/', component: layout,
       children: [
         { path: '', component: () => import('@/views/home/index.vue') },
-        { path: '/test', component: () => import('@/views/test/index.vue') },
+        { path: '/aboutUs', component: () => import('@/views/aboutUs/index.vue') },
+        { path: '/services', component: () => import('@/views/services/index.vue') },
+        { path: '/ourWork', component: () => import('@/views/ourWork/index.vue') },
+        { path: '/packages', component: () => import('@/views/packages/index.vue') },
+
       ]
     },
+    // 捕获未定义的路由，指向 404 页面
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/NotFound/index.vue') },
   ],
 
 })
